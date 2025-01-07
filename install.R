@@ -1,5 +1,5 @@
 install.packages("data.table")
-install.packages("stringr":)
+install.packages("stringr")
 install.packages("ggplot2")
 install.packages("text")
 install.packages("textdata")
