@@ -1,4 +1,4 @@
-FROM quay.io/jupyter/r-notebook
+FROM quay.io/jupyter/datascience-notebook
 
 # Copy the requirements files to the container
 COPY requirements.txt /tmp/requirements.txt
