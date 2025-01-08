@@ -1,1 +1,1 @@
-FROM jupyter/pytorch-notebook
+FROM quay.io/jupyter/pytorch-notebook
