@@ -10,9 +10,6 @@ RUN pip install --no-cache-dir -r /tmp/requirements.txt
 # Install R packages
 RUN Rscript /tmp/install.R
 
-# Clean up
-RUN rm -rf /tmp/requirements.txt /tmp/install.R
-
 # Ensure permissions are correct for the jovyan user
 USER root
 RUN chown -R ${NB_UID}:${NB_GID} /home/jovyan
