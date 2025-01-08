@@ -1,3 +1,6 @@
+# Set CRAN mirror
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+
 install.packages("data.table")
 install.packages("stringr")
 install.packages("ggplot2")
