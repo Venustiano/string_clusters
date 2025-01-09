@@ -4,13 +4,11 @@ FROM quay.io/jupyter/datascience-notebook:x86_64-python-3.11
 USER root
 RUN apt-get update && apt-get install -y --no-install-recommends \
     openjdk-17-jdk \
-    openjdk-17-jre && \
-    libcurl4-openssl-dev &&\
+    openjdk-17-jre \
+    libcurl4-openssl-dev \
+    libxml2-dev \
     libssl-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
-
-#        libxml2-dev \
-
 
 # Set JAVA_HOME environment variable (optional)
 ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
