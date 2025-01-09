@@ -3,11 +3,16 @@ FROM quay.io/jupyter/datascience-notebook:x86_64-python-3.11
 # Switch to root for installing system dependencies
 USER root
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    libxml2-dev \
-    libcurl4-openssl-dev \
+    openjdk-17-jdk \
+    openjdk-17-jre && \
+    libxml2-dev && \
+    libcurl4-openssl-dev &&\
     libssl-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Set JAVA_HOME environment variable (optional)
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+ENV PATH="${JAVA_HOME}/bin:${PATH}"
 # Switch back to the default user
 USER ${NB_USER}
 # Install from the requirements.txt file
