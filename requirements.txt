@@ -1,3 +1,6 @@
+# Add channels for specific packages
+-c pytorch
+
 transformers
 sentence-transformers
 torch
