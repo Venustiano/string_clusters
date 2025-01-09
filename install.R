@@ -1,16 +1,18 @@
 # Set CRAN mirror
 options(repos = c(CRAN = "https://cloud.r-project.org"))
 
-install.packages("data.table")
-install.packages("stringr")
-install.packages("ggplot2")
-install.packages("text")
-install.packages("textdata")
-install.packages("cluster")
-install.packages("Rtsne")
-install.packages("wordcloud2")
-install.packages("tm")
-install.packages("SnowballC")
-install.packages("wordcloud")
-install.packages("tidytext")
-install.packages("tidyr")
+install.packages(c(
+  "data.table",
+  "stringr",
+  "ggplot2",
+  "text",
+  "textdata",
+  "cluster",
+  "Rtsne",
+  "wordcloud2",
+  "tm",
+  "SnowballC",
+  "wordcloud",
+  "tidytext",
+  "tidyr"),
+                 dependencies = TRUE)
