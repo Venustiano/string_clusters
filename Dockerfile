@@ -5,6 +5,8 @@ USER root
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libudunits2-dev \
     default-jdk \
+    default-jre \
+    r-cran-rjava \
     libpoppler-cpp-dev \
     gdal-bin \
     libgdal-dev \
@@ -14,11 +16,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libcurl4-openssl-dev && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
     
-# Set JAVA_HOME environment variable (optional)
-ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+# Set JAVA_HOME and update PATH
+ENV JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
-# Switch back to the default user
-USER ${NB_USER}
+
+# Set LD_LIBRARY_PATH for Java
+ENV LD_LIBRARY_PATH=/usr/lib/jvm/java-21-openjdk-amd64/lib/server:$LD_LIBRARY_PATH
+
+# Configure R with Java support
+RUN R CMD javareconf
+
 # Install from the requirements.txt file
 COPY --chown=${NB_UID}:${NB_GID} requirements.txt /tmp/
 RUN pip install --no-cache-dir --requirement /tmp/requirements.txt && \
