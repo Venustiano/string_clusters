@@ -1,4 +1,4 @@
-FROM quay.io/jupyter/datascience-notebook
+FROM quay.io/jupyter/datascience-notebook:x86_64-python-3.11
 
 # Install from the requirements.txt file
 COPY --chown=${NB_UID}:${NB_GID} requirements.txt /tmp/
