@@ -1,4 +1,5 @@
 torch
+nltk
 transformers
 sentence-transformers
 numpy
